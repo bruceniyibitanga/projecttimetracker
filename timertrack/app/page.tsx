@@ -253,20 +253,20 @@ export default function Home() {
   }, [perTaskWeekTotals, weekStart, weekEnd]);
 
   return (
-    <div className="min-h-screen w-full bg-white text-gray-900">
+    <div className="min-h-screen w-full bg-neutral-50 text-neutral-900">
       <div className="max-w-3xl mx-auto px-6 py-10">
         <header className="mb-8 flex items-center justify-between">
-          <h1 className="text-2xl font-bold">TimerTrack</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">TimerTrack</h1>
           <div className="flex gap-2">
             <button
               onClick={exportCSV}
-              className="rounded-md border border-gray-300 px-3 py-2 text-sm hover:bg-gray-50"
+              className="rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100"
             >
               Export CSV (week)
             </button>
             <button
               onClick={exportJSON}
-              className="rounded-md border border-gray-300 px-3 py-2 text-sm hover:bg-gray-50"
+              className="rounded-md border border-neutral-300 px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100"
             >
               Export JSON (week)
             </button>
@@ -284,21 +284,21 @@ export default function Home() {
               value={taskTitle}
               onChange={(e) => setTaskTitle(e.target.value)}
               placeholder="What are you working on?"
-              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-900"
             />
           </div>
 
           <button
             onClick={handleToggle}
             className={`h-11 rounded-md px-6 font-medium text-white transition-colors ${
-              isRunning ? "bg-amber-600 hover:bg-amber-700" : "bg-blue-600 hover:bg-blue-700"
+              isRunning ? "bg-amber-600 hover:bg-amber-700" : "bg-neutral-900 hover:bg-neutral-800"
             }`}
           >
             {isRunning ? "Pause" : "Start"}
           </button>
         </section>
 
-        <section className="mb-8 rounded-lg border border-gray-200 p-4">
+        <section className="mb-8 rounded-lg border border-neutral-200 bg-white p-4">
           <div className="flex items-center justify-between">
             <div>
               <div className="text-sm text-gray-600">Current task</div>
@@ -313,15 +313,15 @@ export default function Home() {
         </section>
 
         <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <div className="rounded-lg border border-gray-200 p-4">
+          <div className="rounded-lg border border-neutral-200 bg-white p-4">
             <div className="text-sm text-gray-600">Today total</div>
             <div className="text-2xl font-mono tabular-nums">{formatDuration(todayTotalMs)}</div>
           </div>
-          <div className="rounded-lg border border-gray-200 p-4">
+          <div className="rounded-lg border border-neutral-200 bg-white p-4">
             <div className="text-sm text-gray-600">This week total</div>
             <div className="text-2xl font-mono tabular-nums">{formatDuration(weekTotalMs)}</div>
           </div>
-          <div className="rounded-lg border border-gray-200 p-4">
+          <div className="rounded-lg border border-neutral-200 bg-white p-4">
             <div className="text-sm text-gray-600">Running</div>
             <div className="text-2xl font-mono tabular-nums">{isRunning ? "Yes" : "No"}</div>
           </div>
@@ -332,7 +332,7 @@ export default function Home() {
           {perTaskWeekTotals.size === 0 && !isRunning ? (
             <div className="text-sm text-gray-600">No tracked time this week yet.</div>
           ) : (
-            <div className="divide-y divide-gray-200 rounded-lg border border-gray-200">
+            <div className="divide-y divide-neutral-200 rounded-lg border border-neutral-200 bg-white">
               {Array.from(perTaskWeekTotals.entries())
                 .sort((a, b) => b[1] - a[1])
                 .map(([task, ms]) => (
@@ -356,7 +356,7 @@ export default function Home() {
           {weekSessionsSorted.length === 0 ? (
             <div className="text-sm text-gray-600">No sessions recorded this week.</div>
           ) : (
-            <ul className="divide-y divide-gray-200 rounded-lg border border-gray-200">
+            <ul className="divide-y divide-neutral-200 rounded-lg border border-neutral-200 bg-white">
               {weekSessionsSorted.map((s) => {
                 const duration = s.endMs - s.startMs;
                 const start = new Date(s.startMs);
