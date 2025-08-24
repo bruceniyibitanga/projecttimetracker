@@ -52,7 +52,6 @@ function parseDateTimeLocal(dateStr: string, timeStr: string): Date | null {
 // Enhanced Markdown Parser Functions
 function parseInlineMarkdown(text: string): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
-  let currentIndex = 0;
 
   // Regex patterns for different markdown elements
   const patterns = [
